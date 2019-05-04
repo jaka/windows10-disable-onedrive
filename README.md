@@ -1,5 +1,4 @@
 # Disable One Drive in Windows 10
-===
 
 Run with administrator privileges 
 
@@ -46,10 +45,10 @@ Function DisableOneDrive
 	Start-Sleep -s 2
 
 	# Remove OneDrive from File Explorer
-	$OneDrive =	"HKLM:SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
+	$OneDrive = "HKLM:SOFTWARE\Classes\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
 	Force-New-Item -Path "$OneDrive"
 	Set-ItemProperty -Path "$OneDrive" -Name "System.IsPinnedToNameSpaceTree" -Type DWORD -Value 0
-	$OneDrive =	"HKLM:SOFTWARE\Classes\CLSID\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
+	$OneDrive = "HKLM:SOFTWARE\Classes\CLSID\Wow6432Node\CLSID\{018D5C66-4533-4307-9B53-224DE2ED1FE6}"
 	Force-New-Item -Path "$OneDrive"
 	Set-ItemProperty -Path "$OneDrive" -Name "System.IsPinnedToNameSpaceTree" -Type DWORD -Value 0
 	
